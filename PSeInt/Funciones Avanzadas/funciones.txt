@@ -1,0 +1,6 @@
+Funciones Avanzadas
+
+- Funciones Trigonométricas: Seno, Coseno, Tangente
+- Funciones Logarítmicas: Logaritmo Natural (ln), Logaritmo Base 10 (log10)
+- Funciones Exponenciales: Potencia (x^y)
+- Raíz Cuadrada

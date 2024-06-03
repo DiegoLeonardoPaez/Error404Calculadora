@@ -1,0 +1,8 @@
+Buenas
+la idea es que se cree un nuevo archivo .psc por c/u de los métodos
+que toque hacer y que se coloque en la carpeta correspondiente.
+
+Cada método tiene que tener:
+- validación de los datos ingresados, ejemplo, no permitir una división por 0
+- respetar el mismo estilo de nombramiento de variables y funciones
+- se aceptan + sugerencias
