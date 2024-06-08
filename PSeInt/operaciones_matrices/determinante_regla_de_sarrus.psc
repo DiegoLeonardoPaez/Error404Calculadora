@@ -10,7 +10,7 @@ Algoritmo determinante_regla_de_sarrus
 
     Para i <- 1 Hasta 3 Con Paso 1 Hacer
         Para j <- 1 Hasta 3 Con Paso 1 Hacer
-            Escribir "Ingrese el n�mero en la fila ", i, " y columna ", j, ": "
+            Escribir "Ingrese el numero en la fila ", i, " y columna ", j, ": "
             Leer A[i,j]
         FinPara
     FinPara
