@@ -62,4 +62,4 @@ Para i <- 1 Hasta filas Hacer
 		Escribir Sin Saltar matrizProducto[i, j]," ";
 	FinPara
 FinPara
-FinProceso
+FinProces
