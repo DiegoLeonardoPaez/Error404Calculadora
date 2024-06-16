@@ -1,7 +1,0 @@
-Operaciones con Matrices
-
-- Inicialización y Entrada de Matrices
-- Suma y Resta de Matrices
-- Multiplicación de Matrices
-- Determinante de una Matriz
-- Transposición de Matrices

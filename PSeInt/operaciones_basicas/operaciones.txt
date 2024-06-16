@@ -1,6 +1,0 @@
-Operaciones Aritméticas Básicas
-
-- Suma
-- Resta
-- Multiplicación
-- División
