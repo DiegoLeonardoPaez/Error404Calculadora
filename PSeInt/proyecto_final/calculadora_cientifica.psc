@@ -20,7 +20,7 @@ SubProceso operaciones_basicas(valor_opcion Por Valor)
 			FinSi;
 		FinSi;
 	FinSi;
-
+	
 	Si valor_opcion <> 4 Entonces
 		// Cantidad de números a operar
 		Escribir "Ingrese la cantidad de números a operar:";
@@ -59,7 +59,7 @@ SubProceso operaciones_basicas(valor_opcion Por Valor)
         cociente <- num1 / num2; // Cociente
         resto <- num1 % num2; // Resto de la división
 	FinSi;
-
+	
 	Si valor_opcion = 1 Entonces
 		// Mostrar la suma
 		Escribir "La suma de los números ingresados es:", resultado;
@@ -85,31 +85,13 @@ FinSubProceso
 // -- Fin Método de Operaciones Básicas --
 
 // -- Inicio Métodos de Operaciones Científicas --
-SubProceso potencia
-	// Variables locales
-	Definir base, exponente, resultado Como Real;
-
-	Repetir
-		Escribir "Ingrese la base:";
-		Leer base;
-		Si base <= 0 Entonces
-			Escribir "Error: La base debe ser un número mayor a 0.";
-		FinSi;
-	Hasta Que base > 0;
-
-	Repetir
-		Escribir "Ingrese el exponente:";
-		Leer exponente;
-		Si exponente <= 0 Entonces
-			Escribir "Error: El exponente debe ser un número mayor a 0.";
-		FinSi;
-	Hasta Que exponente > 0;
-	
-	// Calcular la potencia
-	resultado <- base^exponente;
-	
-	// Mostrar el resultado
-	Escribir "El resultado de la potencia es:", resultado;
+SubProceso  resultado <- potencia(base, exponente Por Valor)
+	Definir resultado Como Real;
+    Si exponente=0 Entonces
+        resultado <- 1;
+    sino 
+        resultado <- base*potencia(base, exponente - 1); 
+    FinSi
 FinSubProceso
 
 SubProceso raiz_cuadrada
@@ -184,7 +166,7 @@ SubProceso suma_matriz(parametro por valor)
 	
 	// Ingreso de la matriz B
 	carga_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Mostrar matriz B
 	Escribir "Matriz B ingresada:";
 	mostrar_matriz(matriz_B, filas_B, columnas_B);
@@ -288,11 +270,11 @@ SubProceso multiplicacion_matriz(parametro Por Valor)
 	// Ingreso de la matriz B
 	Escribir "Ingrese los elementos de la matriz B:";
 	carga_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Mostrar matriz B
 	Escribir "Matriz B ingresada:";
 	mostrar_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Inicialización de la matriz resultante
 	Para i <- 1 Hasta filas_A Con Paso 1 Hacer;
 		Para j <- 1 Hasta columnas_B Con Paso 1 Hacer;
@@ -334,7 +316,7 @@ SubProceso determinante_matriz(parametro Por Valor)
 	// Mostrar matriz A
 	Escribir "La matriz ingresada es: ";
 	mostrar_matriz(matriz_A, filas, columnas);
-
+	
 	posicion_1 <- matriz_A[1,1]*matriz_A[2,2]*matriz_A[3,3];
 	posicion_2 <- matriz_A[2,1]*matriz_A[3,2]*matriz_A[1,3];
 	posicion_3 <- matriz_A[3,1]*matriz_A[1,2]*matriz_A[2,3];
@@ -352,13 +334,13 @@ SubProceso transpuesta_matriz(parametro Por Valor)
     Definir filas, columnas como Entero;
     Dimension matriz_original[100, 100], matriz_transpuesta[100, 100];
     Definir i, j como Entero;
-
+	
     // Dimension de la matriz
     Escribir "Ingrese el número de filas de la matriz:";
     Leer filas;
     Escribir "Ingrese el número de columnas de la matriz:";
     Leer columnas;
-
+	
     Escribir "Ingrese los elementos de la matriz:";
 	Para i <- 1 Hasta filas Hacer;
 		Para j <- 1 Hasta columnas Hacer;
@@ -369,11 +351,11 @@ SubProceso transpuesta_matriz(parametro Por Valor)
 	
 	// Ingreso de la matriz original
 	carga_matriz(matriz_original, filas, columnas);
-
+	
 	// Mostrar la matriz original
     Escribir "Matriz Original:";
 	mostrar_matriz(matriz_original, filas, columnas);
-
+	
     // Calcular la transpuesta
     Para i <- 1 Hasta filas Hacer
         Para j <- 1 Hasta columnas Hacer
@@ -384,7 +366,7 @@ SubProceso transpuesta_matriz(parametro Por Valor)
 	// Mostrar la matriz transpuesta
     Escribir "Matriz Transpuesta:";
 	mostrar_matriz(matriz_transpuesta, filas, columnas);
-
+	
 FinSubProceso
 
 // -- Fin Métodos de Matrices --
@@ -453,8 +435,26 @@ Proceso PRINCIPAL
                 Segun subopcion Hacer
                     Caso 1:
                         // POTENCIA
-                        Escribir "Ejecutando Potencia...";
-						potencia;
+						Repetir
+							Definir base Como Real;
+							Escribir "Ingrese la base:";
+							Leer base;
+							Si base <= 0 Entonces
+								Escribir "Error: La base debe ser un número mayor a 0.";
+							FinSi;
+						Hasta Que base > 0;
+						
+						Repetir
+							Definir exponente Como Real;
+							Escribir "Ingrese el exponente:";
+							Leer exponente;
+							Si exponente <= 0 Entonces
+								Escribir "Error: El exponente debe ser un número mayor a 0.";
+							FinSi;
+						Hasta Que exponente > 0;
+						
+						Escribir "El resultado es ",potencia(base,exponente);
+						
                     Caso 2:
                         // RAIZ
                         Escribir "Ejecutando Raíz Cuadrada...";
