@@ -441,11 +441,11 @@ Proceso PRINCIPAL
                     Caso 1:
                         // POTENCIA
                         Escribir "Ejecutando Potencia...";
-												potencia();
+						potencia();
                     Caso 2:
                         // RAIZ
                         Escribir "Ejecutando Raíz Cuadrada...";
-												raiz_cuadrada();
+						raiz_cuadrada();
                     Caso 3:
                         // LOG
                         Escribir "Ejecutando Logaritmo...";
