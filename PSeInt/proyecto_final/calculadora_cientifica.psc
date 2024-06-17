@@ -88,14 +88,22 @@ FinSubProceso
 SubProceso potencia
 	// Variables locales
 	Definir base, exponente, resultado Como Real;
-	
-	// Ingreso de la base
-	Escribir "Ingrese la base:";
-	Leer base;
-	
-	// Ingreso del exponente
-	Escribir "Ingrese el exponente:";
-	Leer exponente;
+
+	Repetir
+		Escribir "Ingrese la base:";
+		Leer base;
+		Si base <= 0 Entonces
+			Escribir "Error: La base debe ser un número mayor a 0.";
+		FinSi;
+	Hasta Que base > 0;
+
+	Repetir
+		Escribir "Ingrese el exponente:";
+		Leer exponente;
+		Si exponente <= 0 Entonces
+			Escribir "Error: El exponente debe ser un número mayor a 0.";
+		FinSi;
+	Hasta Que exponente > 0;
 	
 	// Calcular la potencia
 	resultado <- base^exponente;
@@ -109,8 +117,13 @@ SubProceso raiz_cuadrada
 	Definir numero, resultado Como Real;
 	
 	// Ingreso del número
-	Escribir "Ingrese el número:";
-	Leer numero;
+	Repetir
+		Escribir "Ingrese el número para calcular la raíz cuadrada:";
+		Leer numero;
+		Si numero < 0 Entonces
+			Escribir "Error: El número debe ser mayor o igual a 0.";
+		FinSi;
+	Hasta Que numero >= 0;
 	
 	// Calcular la raíz cuadrada
 	resultado <- raiz(numero);
