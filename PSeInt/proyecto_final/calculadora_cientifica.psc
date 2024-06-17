@@ -84,6 +84,42 @@ SubProceso operaciones_basicas(valor_opcion Por Valor)
 FinSubProceso
 // -- Fin Método de Operaciones Básicas --
 
+// -- Inicio Métodos de Operaciones Científicas --
+SubProceso potencia()
+	// Variables locales
+	Definir base, exponente, resultado Como Real;
+	
+	// Ingreso de la base
+	Escribir "Ingrese la base:";
+	Leer base;
+	
+	// Ingreso del exponente
+	Escribir "Ingrese el exponente:";
+	Leer exponente;
+	
+	// Calcular la potencia
+	resultado <- base^exponente;
+	
+	// Mostrar el resultado
+	Escribir "El resultado de la potencia es:", resultado;
+FinSubProceso
+
+SubProceso raiz_cuadrada()
+	// Variables locales
+	Definir numero, resultado Como Real;
+	
+	// Ingreso del número
+	Escribir "Ingrese el número:";
+	Leer numero;
+	
+	// Calcular la raíz cuadrada
+	resultado <- raiz(numero);
+	
+	// Mostrar el resultado
+	Escribir "La raíz cuadrada de ", numero, " es:", resultado;
+FinSubProceso	
+// -- Fin Métodos de Operaciones Científicas --
+
 // -- Inicio Métodos de Matrices --
 SubProceso carga_matriz(matriz, filas, columnas Por Referencia)
 	Para i <- 1 Hasta filas Con Paso 1 Hacer;
@@ -405,9 +441,11 @@ Proceso PRINCIPAL
                     Caso 1:
                         // POTENCIA
                         Escribir "Ejecutando Potencia...";
+												potencia();
                     Caso 2:
                         // RAIZ
                         Escribir "Ejecutando Raíz Cuadrada...";
+												raiz_cuadrada();
                     Caso 3:
                         // LOG
                         Escribir "Ejecutando Logaritmo...";
