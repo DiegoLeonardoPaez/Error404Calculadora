@@ -48,7 +48,6 @@ Al ejecutar el programa, se presentará al usuario un menú para elegir el tipo 
 - Coseno
 - Tangente
 - Logaritmo Natural (ln)
-- Logaritmo Base 10 (log10)
 - Potencia (x^y)
 - Raíz Cuadrada
 - Inicialización y Entrada de Matrices
