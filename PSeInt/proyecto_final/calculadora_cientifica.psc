@@ -1,10 +1,10 @@
-// -- Inicio MÃ©todo de Operaciones BÃ¡sicas --
+// -- Inicio Método de Operaciones Básicas --
 SubProceso operaciones_basicas(valor_opcion Por Valor)
 	// Variables locales
 	Definir cantidad_numeros, num, resultado, i, resto como Entero;
 	Definir cociente, num1, num2 como Real;
-
-	// Inicializar el resultado en 0 para suma y multiplicaciÃ³n, 1 para divisiÃ³n (elemento neutro)
+	
+	// Inicializar el resultado en 0 para suma y multiplicación, 1 para división (elemento neutro)
 	Si valor_opcion = 1 Entonces
 		resultado <- 0; // Para suma
 	Sino;
@@ -12,21 +12,21 @@ SubProceso operaciones_basicas(valor_opcion Por Valor)
 			resultado <- 0; // Para resta (no hay elemento neutro, pero se inicializa en 0)
 		Sino;
 			Si valor_opcion = 3 Entonces
-				resultado <- 1; // Para multiplicaciÃ³n (elemento neutro)
+				resultado <- 1; // Para multiplicación (elemento neutro)
 			Sino;
 				Si valor_opcion = 4 Entonces
-					resultado <- 1; // Para divisiÃ³n (elemento neutro)
+					resultado <- 1; // Para división (elemento neutro)
 				FinSi;
 			FinSi;
 		FinSi;
 	FinSi;
-
+	
 	Si valor_opcion <> 4 Entonces
-		// Cantidad de nÃºmeros a operar
-		Escribir "Ingrese la cantidad de nÃºmeros a operar:";
+		// Cantidad de números a operar
+		Escribir "Ingrese la cantidad de números a operar:";
 		Leer cantidad_numeros;
 		Para i <- 1 Hasta cantidad_numeros Hacer
-			Escribir "Ingrese el nÃºmero ", i, ":";
+			Escribir "Ingrese el número ", i, ":";
 			Leer num;
 			Si valor_opcion = 1 Entonces
 				resultado <- resultado + num; // Suma
@@ -35,87 +35,120 @@ SubProceso operaciones_basicas(valor_opcion Por Valor)
 					resultado <- resultado - num; // Resta
 				Sino;
 					Si valor_opcion = 3 Entonces
-						resultado <- resultado * num; // MultiplicaciÃ³n
+						resultado <- resultado * num; // Multiplicación
 					FinSi;
 				FinSi;
 			FinSi;
 		FinPara;
 	Sino;
-		// OperaciÃ³n de divisiÃ³n
+		// Operación de división
 		// Inicializar num2 con 0 para entrar en el bucle
         num2 <- 0;
-		Escribir "Ingrese el primer nÃºmero para la divisiÃ³n:";
+		Escribir "Ingrese el primer número para la división:";
 		Leer num1;
-        // Solicitar el segundo nÃºmero hasta que sea diferente de cero
+        // Solicitar el segundo número hasta que sea diferente de cero
         Mientras num2 = 0 Hacer
-            Escribir "Ingrese el segundo nÃºmero para la divisiÃ³n:";
+            Escribir "Ingrese el segundo número para la división:";
             Leer num2;
             Si num2 = 0 Entonces
                 Escribir "Error: no se puede dividir por cero.";
             FinSi;
         FinMientras;
-
-        // Realizar la divisiÃ³n
+		
+        // Realizar la división
         cociente <- num1 / num2; // Cociente
-        resto <- num1 % num2; // Resto de la divisiÃ³n
+        resto <- num1 % num2; // Resto de la división
 	FinSi;
-
+	
 	Si valor_opcion = 1 Entonces
 		// Mostrar la suma
-		Escribir "La suma de los nÃºmeros ingresados es:", resultado;
+		Escribir "La suma de los números ingresados es:", resultado;
 	Sino;
 		Si valor_opcion = 2 Entonces
 			// Mostrar la resta
-			Escribir "La resta de los nÃºmeros ingresados es:", resultado;
+			Escribir "La resta de los números ingresados es:", resultado;
 		Sino;
 			Si valor_opcion = 3 Entonces
-				// Mostrar la multiplicaciÃ³n
-				Escribir "El producto de los nÃºmeros ingresados es:", resultado;
+				// Mostrar la multiplicación
+				Escribir "El producto de los números ingresados es:", resultado;
 			Sino;
 				Si valor_opcion = 4 Entonces
 					// Mostrar el cociente
-					Escribir "El cociente de los nÃºmeros ingresados es:", cociente;
+					Escribir "El cociente de los números ingresados es:", cociente;
 					// Mostrar el resto
-					Escribir "El resto de la divisiÃ³n es:", resto;
+					Escribir "El resto de la división es:", resto;
 				FinSi;
 			FinSi;
 		FinSi;
 	FinSi;
 FinSubProceso
-// -- Fin MÃ©todo de Operaciones BÃ¡sicas --
+// -- Fin Método de Operaciones Básicas --
 
-// -- Inicio MÃ©todos de Operaciones CientÃ­ficas --
+// -- Inicio Métodos de Operaciones Científicas --
 SubProceso  resultado <- potencia(base, exponente Por Valor)
 	Definir resultado Como Real;
-    Si exponente=0 Entonces
+    Si exponente = 0 Entonces
         resultado <- 1;
     sino
-        resultado <- base*potencia(base, exponente - 1);
+        resultado <- base * potencia(base, exponente - 1);
     FinSi
 FinSubProceso
 
 SubProceso raiz_cuadrada
 	// Variables locales
-	Definir numero, resultado Como Real;
-
-	// Ingreso del nÃºmero
+	Definir num, resultado Como Real;
+	
+	// Ingreso del número
 	Repetir
-		Escribir "Ingrese el nÃºmero para calcular la raÃ­z cuadrada:";
-		Leer numero;
-		Si numero < 0 Entonces
-			Escribir "Error: El nÃºmero debe ser mayor o igual a 0.";
+		Escribir "Ingrese el número para calcular la raíz cuadrada:";
+		Leer num;
+		Si num < 0 Entonces
+			Escribir "Error: El número debe ser mayor o igual a 0.";
 		FinSi;
-	Hasta Que numero >= 0;
-
-	// Calcular la raÃ­z cuadrada
-	resultado <- raiz(numero);
-
+	Hasta Que num >= 0;
+	
+	// Calcular la raíz cuadrada
+	resultado <- raiz(num);
+	
 	// Mostrar el resultado
-	Escribir "La raÃ­z cuadrada de ", numero, " es:", resultado;
+	Escribir "La raíz cuadrada de ", num, " es:", resultado;
 FinSubProceso
-// -- Fin MÃ©todos de Operaciones CientÃ­ficas --
 
-// -- Inicio MÃ©todos de Matrices --
+SubProceso logaritmo
+	// Ingreso del número
+	Repetir
+		Escribir "Ingrese el número para calcular el Logaritmo Natural: ";
+		Leer num;
+		Si num <= 0 Entonces
+			Escribir "El logaritmo Natural no está definido para números no positivos.";
+		FinSi
+	Hasta Que num > 0;
+	Escribir "El Logaritmo Natural de ",num " es: ", ln(num);
+FinSubProceso
+
+SubProceso seno
+	// Ingreso del número
+	Escribir "Ingrese el número para calcular el Seno: ";
+    Leer num;
+    Escribir "El Seno de ",num " es: ", sen(num);
+FinSubProceso
+
+SubProceso coseno
+	// Ingreso del número
+	Escribir "Ingrese el número para calcular el Coseno: ";
+    Leer num;
+    Escribir "El Coseno de ",num " es: ", cos(num);
+FinSubProceso
+
+SubProceso tangente
+	// Ingreso del número
+	Escribir "Ingrese el número para calcular la Tangente: ";
+    Leer num;
+    Escribir "La Tangente de ",num " es: ", tan(num);
+FinSubProceso
+// -- Fin Métodos de Operaciones Científicas --
+
+// -- Inicio Métodos de Matrices --
 SubProceso carga_matriz(matriz, filas, columnas Por Referencia)
 	Para i <- 1 Hasta filas Con Paso 1 Hacer;
 		Para j <- 1 Hasta columnas Con Paso 1 Hacer;
@@ -134,155 +167,155 @@ SubProceso mostrar_matriz(matriz, filas, columnas Por Referencia)
 	FinPara;
 FinSubProceso
 
-SubProceso suma_matriz(parametro por valor)
+SubProceso suma_matriz
 	Escribir "Ejecutando Suma de Matrices...";
 	Definir filas_A, columnas_A, filas_B, columnas_B, i, j como Entero;
 	Dimension matriz_A[100, 100], matriz_B[100, 100], resultado_matriz[100, 100];
-
+	
 	Repetir;
-		Escribir "Ingrese el nÃºmero de filas de la matriz A:";
+		Escribir "Ingrese el número de filas de la matriz A:";
 		Leer filas_A;
-		Escribir "Ingrese el nÃºmero de columnas de la matriz A:";
+		Escribir "Ingrese el número de columnas de la matriz A:";
 		Leer columnas_A;
-
-		Escribir "Ingrese el nÃºmero de filas de la matriz B:";
+		
+		Escribir "Ingrese el número de filas de la matriz B:";
 		Leer filas_B;
-		Escribir "Ingrese el nÃºmero de columnas de la matriz B:";
+		Escribir "Ingrese el número de columnas de la matriz B:";
 		Leer columnas_B;
-
+		
 		// Validar que las matrices tengan las mismas dimensiones
 		Si filas_A <> filas_B O columnas_A <> columnas_B Entonces
 			Escribir "Error: Las matrices deben tener las mismas dimensiones para poder sumarlas.";
 		FinSi;
 	Hasta Que filas_A = filas_B Y columnas_A = columnas_B;
-
+	
 	// Ingreso de la matriz A
 	Escribir "Ingrese la matriz A:";
 	carga_matriz(matriz_A, filas_A, columnas_A);
-
+	
 	// Mostrar matriz A
 	Escribir "Matriz A ingresada:";
 	mostrar_matriz(matriz_A, filas_A, filas_B);
-
+	
 	// Ingreso de la matriz B
 	carga_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Mostrar matriz B
 	Escribir "Matriz B ingresada:";
 	mostrar_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Suma de matrices
 	Para i <- 1 Hasta filas_A Con Paso 1 Hacer;
 		Para j <- 1 Hasta columnas_A Con Paso 1 Hacer;
 			resultado_matriz[i, j] <- matriz_A[i, j] + matriz_B[i, j];
 		FinPara;
 	FinPara;
-
+	
 	// Mostrar matriz resultado
 	Escribir "El resultado de la suma de matrices es:";
 	mostrar_matriz(resultado_matriz, filas_A, filas_B);
 FinSubProceso
 
-SubProceso resta_matriz(parametro Por Valor)
+SubProceso resta_matriz
 	Escribir "Ejecutando Resta de Matrices...";
 	Definir filas_A, columnas_A, filas_B, columnas_B, i, j como Entero;
 	Dimension matriz_A[100, 100], matriz_B[100, 100], resultado_matriz[100, 100];
-
+	
 	Repetir;
-		Escribir "Ingrese el nÃºmero de filas de la matriz A:";
+		Escribir "Ingrese el número de filas de la matriz A:";
 		Leer filas_A;
-		Escribir "Ingrese el nÃºmero de columnas de la matriz A:";
+		Escribir "Ingrese el número de columnas de la matriz A:";
 		Leer columnas_A;
-
-		Escribir "Ingrese el nÃºmero de filas de la matriz B:";
+		
+		Escribir "Ingrese el número de filas de la matriz B:";
 		Leer filas_B;
-		Escribir "Ingrese el nÃºmero de columnas de la matriz B:";
+		Escribir "Ingrese el número de columnas de la matriz B:";
 		Leer columnas_B;
-
+		
 		// Validar que las matrices tengan las mismas dimensiones
 		Si filas_A <> filas_B O columnas_A <> columnas_B Entonces
 			Escribir "Error: Las matrices deben tener las mismas dimensiones para poder restarlas.";
 		FinSi;
 	Hasta QUE filas_A = filas_B Y columnas_A = columnas_B;
-
+	
 	// Ingreso de la matriz A
 	carga_matriz(matriz_A, filas_A, columnas_A);
-
+	
 	// Mostrar matriz A
 	Escribir "Matriz A ingresada:";
 	mostrar_matriz(matriz_A, filas_A, columnas_A);
-
+	
 	// Ingreso de la matriz B
 	Escribir "Ingrese la matriz B:";
 	carga_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Mostrar matriz B
 	Escribir "Matriz B ingresada:";
 	mostrar_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Resta de matrices
 	Para i <- 1 Hasta filas_A Con Paso 1 Hacer;
 		Para j <- 1 Hasta columnas_A Con Paso 1 Hacer;
 			resultado_matriz[i, j] <- matriz_A[i, j] - matriz_B[i, j];
 		FinPara;
 	FinPara;
-
+	
 	// Mostrar matriz resultado
 	Escribir "El resultado de la resta de matrices es:";
 	mostrar_matriz(resultado_matriz, filas_A, columnas_A);
-
+	
 FinSubProceso
 
-SubProceso multiplicacion_matriz(parametro Por Valor)
-	Escribir "Ejecutando MultiplicaciÃ³n de Matrices...";
+SubProceso multiplicacion_matriz
+	Escribir "Ejecutando Multiplicación de Matrices...";
 	// Variables locales
 	Dimension matriz_A[100,100], matriz_B[100,100], resultado_matriz[100,100];
 	Definir filas_A, columnas_A, filas_B, columnas_B Como Entero;
 	Definir i, j, k Como Entero;
-
-	// Entrada de la dimensiÃ³n de la matriz A
-	Escribir "Ingrese el nÃºmero de filas de la primera matriz A:";
+	
+	// Entrada de la dimensión de la matriz A
+	Escribir "Ingrese el número de filas de la primera matriz A:";
 	Leer filas_A;
-	Escribir "Ingrese el nÃºmero de columnas de la primera matriz A:";
+	Escribir "Ingrese el número de columnas de la primera matriz A:";
 	Leer columnas_A;
-
-	// Entrada de la dimensiÃ³n de la matriz B
-	Escribir "Ingrese el nÃºmero de filas de la segunda matriz B:";
+	
+	// Entrada de la dimensión de la matriz B
+	Escribir "Ingrese el número de filas de la segunda matriz B:";
 	Leer filas_B;
-	Escribir "Ingrese el nÃºmero de columnas de la segunda matriz B:";
+	Escribir "Ingrese el número de columnas de la segunda matriz B:";
 	Leer columnas_B;
-
-	// ValidaciÃ³n de dimensiones para la multiplicaciÃ³n
+	
+	// Validación de dimensiones para la multiplicación
 	Si columnas_A <> filas_B Entonces
-		Escribir "Error: El nÃºmero de columnas de la primera matriz debe ser igual al nÃºmero de filas de la segunda matriz.";
+		Escribir "Error: El número de columnas de la primera matriz debe ser igual al número de filas de la segunda matriz.";
 	Sino;
-		Escribir "El nÃºmero de columnas de la primera matriz es igual al nÃºmero de filas de la segunda matriz.";
+		Escribir "El número de columnas de la primera matriz es igual al número de filas de la segunda matriz.";
 	FinSi;
-
+	
 	// Ingreso de la matriz A
 	Escribir "Ingrese los elementos de la matriz A:";
 	carga_matriz(matriz_A, filas_A, columnas_A);
-
+	
 	// Mostrar matriz A
 	Escribir "Matriz A ingresada:";
 	mostrar_matriz(matriz_A, filas_A, columnas_A);
-
+	
 	// Ingreso de la matriz B
 	Escribir "Ingrese los elementos de la matriz B:";
 	carga_matriz(matriz_B, filas_B, columnas_B);
-
+	
 	// Mostrar matriz B
 	Escribir "Matriz B ingresada:";
 	mostrar_matriz(matriz_B, filas_B, columnas_B);
-
-	// InicializaciÃ³n de la matriz resultante
+	
+	// Inicialización de la matriz resultante
 	Para i <- 1 Hasta filas_A Con Paso 1 Hacer;
 		Para j <- 1 Hasta columnas_B Con Paso 1 Hacer;
 			resultado_matriz[i, j] <- 0;
 		FinPara;
 	FinPara;
-
-	// MultiplicaciÃ³n de matrices
+	
+	// Multiplicación de matrices
 	Para i <- 1 Hasta filas_A Con Paso 1 Hacer;
 		Para j <- 1 Hasta columnas_B Con Paso 1 Hacer;
 			Para k <- 1 Hasta columnas_A Con Paso 1 Hacer;
@@ -290,57 +323,57 @@ SubProceso multiplicacion_matriz(parametro Por Valor)
 			FinPara;
 		FinPara;
 	FinPara;
-
+	
 	// Mostrar matriz resultado
 	Escribir "La matriz resultante es:";
 	mostrar_matriz(resultado_matriz, filas_A, columnas_B);
-
+	
 FinSubProceso
 
-SubProceso determinante_matriz(parametro Por Valor)
+SubProceso determinante_matriz
 	Escribir "Ejecutando Determinante de Matrices...";
-	Escribir "Info >> La regla de Sarrus es un mÃ©todo especÃ­fico para calcular el determinante de una matriz cuadrada de tamaÃ±o 3x3";
+	Escribir "Info >> La regla de Sarrus es un método específico para calcular el determinante de una matriz cuadrada de tamaño 3x3";
 	Dimension matriz_A(3,3);
 	Definir i, j Como Entero;
 	Definir filas, columnas, posicion_1, posicion_2, posicion_3, posicion_4, posicion_5, posicion_6, determinante Como Real;
-
+	
 	filas <- 3;
 	columnas <- 3;
-
+	
 	i <- 0;
 	j <- 0;
-
+	
 	// Ingreso de la matriz A
 	carga_matriz(matriz_A, filas, columnas);
-
+	
 	// Mostrar matriz A
 	Escribir "La matriz ingresada es: ";
 	mostrar_matriz(matriz_A, filas, columnas);
-
+	
 	posicion_1 <- matriz_A[1,1]*matriz_A[2,2]*matriz_A[3,3];
 	posicion_2 <- matriz_A[2,1]*matriz_A[3,2]*matriz_A[1,3];
 	posicion_3 <- matriz_A[3,1]*matriz_A[1,2]*matriz_A[2,3];
 	posicion_4 <- matriz_A[1,3]*matriz_A[2,2]*matriz_A[3,1];
 	posicion_5 <- matriz_A[2,3]*matriz_A[3,2]*matriz_A[1,1];
 	posicion_6 <- matriz_A[3,3]*matriz_A[1,2]*matriz_A[2,1];
-
+	
 	Determinante <- (posicion_1 + posicion_2 + posicion_3) - (posicion_4 + posicion_5 + posicion_6);
 	Escribir "";
 	Escribir "La Determinante es:", determinante;
 FinSubProceso
 
-SubProceso transpuesta_matriz(parametro Por Valor)
+SubProceso transpuesta_matriz
 	// Variables locales
     Definir filas, columnas como Entero;
     Dimension matriz_original[100, 100], matriz_transpuesta[100, 100];
     Definir i, j como Entero;
-
+	
     // Dimension de la matriz
-    Escribir "Ingrese el nÃºmero de filas de la matriz:";
+    Escribir "Ingrese el número de filas de la matriz:";
     Leer filas;
-    Escribir "Ingrese el nÃºmero de columnas de la matriz:";
+    Escribir "Ingrese el número de columnas de la matriz:";
     Leer columnas;
-
+	
     Escribir "Ingrese los elementos de la matriz:";
 	Para i <- 1 Hasta filas Hacer;
 		Para j <- 1 Hasta columnas Hacer;
@@ -348,90 +381,90 @@ SubProceso transpuesta_matriz(parametro Por Valor)
 			Leer matriz_original[i, j];
 		FinPara;
 	FinPara;
-
+	
 	// Ingreso de la matriz original
 	carga_matriz(matriz_original, filas, columnas);
-
+	
 	// Mostrar la matriz original
     Escribir "Matriz Original:";
 	mostrar_matriz(matriz_original, filas, columnas);
-
+	
     // Calcular la transpuesta
     Para i <- 1 Hasta filas Hacer
         Para j <- 1 Hasta columnas Hacer
             matriz_transpuesta[j, i] <- matriz_original[i, j];
         FinPara
     FinPara
-
+	
 	// Mostrar la matriz transpuesta
     Escribir "Matriz Transpuesta:";
 	mostrar_matriz(matriz_transpuesta, filas, columnas);
-
+	
 FinSubProceso
 
-// -- Fin MÃ©todos de Matrices --
+// -- Fin Métodos de Matrices --
 
 Proceso PRINCIPAL
 	Definir puerta Como Logico;
     Definir opcion, subopcion Como Entero;
     Definir seguir Como Caracter;
-
-	Escribir "Bienvenido a la aplicaciÃ³n de Calculadora CientÃ­fica";
-
+	
+	Escribir "Bienvenido a la aplicación de Calculadora Científica";
+	
     seguir <- "S";
     Mientras seguir = "S" Hacer
-        // Mostrar el menÃº principal
-        Escribir "1. Operaciones BÃ¡sicas";
-        Escribir "2. Operaciones CientÃ­ficas";
+        // Mostrar el menú principal
+        Escribir "1. Operaciones Básicas";
+        Escribir "2. Operaciones Científicas";
         Escribir "3. Operaciones de Matrices";
         Escribir "4. Salir";
-        Escribir "Seleccione una opciÃ³n: ";
+        Escribir "Seleccione una opción: ";
         Leer opcion;
-
+		
         Segun opcion Hacer
             Caso 1:
-                // SubmenÃº de Operaciones BÃ¡sicas
-                Escribir "Operaciones BÃ¡sicas";
+                // Submenú de Operaciones Básicas
+                Escribir "Operaciones Básicas";
                 Escribir "1. Suma";
                 Escribir "2. Resta";
-                Escribir "3. MultiplicaciÃ³n";
-                Escribir "4. DivisiÃ³n";
-                Escribir "Seleccione una operaciÃ³n: ";
+                Escribir "3. Multiplicación";
+                Escribir "4. División";
+                Escribir "Seleccione una operación: ";
                 Leer subopcion;
-
+				
                 Segun subopcion Hacer
                     Caso 1:
                         // SUMA
                         Escribir "Ejecutando Suma...";
 						operaciones_basicas(subopcion);
-
+						
                     Caso 2:
                         // RESTA
                         operaciones_basicas(subopcion);
                     Caso 3:
-                        // MULTIPLICACIÃ“N
-                        Escribir "Ejecutando MultiplicaciÃ³n...";
+                        // MULTIPLICACIÓN
+                        Escribir "Ejecutando Multiplicación...";
 						operaciones_basicas(subopcion);
                     Caso 4:
-                        // DIVISIÃ“N
-                        Escribir "Ejecutando DivisiÃ³n...";
+                        // DIVISIÓN
+                        Escribir "Ejecutando División...";
 						operaciones_basicas(subopcion);
                     De Otro Modo:
-                        Escribir "OpciÃ³n no vÃ¡lida";
+                        Escribir "Opción no válida";
                 FinSegun
-
+				
             Caso 2:
-                // SubmenÃº de Operaciones CientÃ­ficas
-                Escribir "Operaciones CientÃ­ficas";
+                // Submenú de Operaciones Científicas
+                Escribir "Operaciones Científicas";
                 Escribir "1. Potencia";
-                Escribir "2. RaÃ­z Cuadrada";
+                Escribir "2. Raíz Cuadrada";
                 Escribir "3. Logaritmo";
                 Escribir "4. Seno";
                 Escribir "5. Coseno";
                 Escribir "6. Tangente";
-                Escribir "Seleccione una operaciÃ³n: ";
+                Escribir "Seleccione una operación: ";
                 Leer subopcion;
-
+				
                 Segun subopcion Hacer
                     Caso 1:
                         // POTENCIA
@@ -440,91 +473,95 @@ Proceso PRINCIPAL
 							Escribir "Ingrese la base:";
 							Leer base;
 							Si base <= 0 Entonces
-								Escribir "Error: La base debe ser un nÃºmero mayor a 0.";
+								Escribir "Error: La base debe ser un número mayor a 0.";
 							FinSi;
 						Hasta Que base > 0;
-
+						
 						Repetir
 							Definir exponente Como Real;
 							Escribir "Ingrese el exponente:";
 							Leer exponente;
 							Si exponente <= 0 Entonces
-								Escribir "Error: El exponente debe ser un nÃºmero mayor a 0.";
+								Escribir "Error: El exponente debe ser un número mayor a 0.";
 							FinSi;
 						Hasta Que exponente > 0;
-
+						
 						Escribir "El resultado es ",potencia(base,exponente);
-
+						
                     Caso 2:
                         // RAIZ
-                        Escribir "Ejecutando RaÃ­z Cuadrada...";
+                        Escribir "Ejecutando Raíz Cuadrada...";
 						raiz_cuadrada;
                     Caso 3:
                         // LOG
                         Escribir "Ejecutando Logaritmo...";
+						logaritmo;
                     Caso 4:
                         // SENO
                         Escribir "Ejecutando Seno...";
+						seno;
                     Caso 5:
                         // COS
                         Escribir "Ejecutando Coseno...";
+						coseno;
                     Caso 6:
                         // TAN
                         Escribir "Ejecutando Tangente...";
+						tangente;
                     De Otro Modo:
-                        Escribir "OpciÃ³n no vÃ¡lida";
+                        Escribir "Opción no válida";
                 FinSegun
-
+				
             Caso 3:
-                // SubmenÃº de Operaciones de Matrices
+                // Submenú de Operaciones de Matrices
                 Escribir "Operaciones de Matrices";
                 Escribir "1. Suma";
                 Escribir "2. Resta";
-                Escribir "3. MultiplicaciÃ³n";
+                Escribir "3. Multiplicación";
                 Escribir "4. Determinante";
-                Escribir "5. TransposiciÃ³n";
-                Escribir "Seleccione una operaciÃ³n: ";
+                Escribir "5. Transposición";
+                Escribir "Seleccione una operación: ";
                 Leer subopcion;
-
+				
                 Segun subopcion Hacer
                     Caso 1:
                         // SUMA MATRIZ
-						suma_matriz(arg);
+						suma_matriz;
                     Caso 2:
                         // RESTA MATRIZ
-						resta_matriz(arg);
+						resta_matriz;
                     Caso 3:
-                        // MULTIPLICACIÃ“N MATRIZ
-						multiplicacion_matriz(arg);
+                        // MULTIPLICACIÓN MATRIZ
+						multiplicacion_matriz;
                     Caso 4:
                         // DETERMINANTE MATRIZ
-						determinante_matriz(arg);
+						determinante_matriz;
                     Caso 5:
                         // TRANSPUESTA DE UNA MATRIZ
-						transpuesta_matriz(arg);
+						transpuesta_matriz;
                     De Otro Modo:
-                        Escribir "OpciÃ³n no vÃ¡lida";
+                        Escribir "Opción no válida";
                 FinSegun
-
+				
             Caso 4:
                 Escribir "Saliendo...";
                 seguir <- "N";
             De Otro Modo:
-                Escribir "OpciÃ³n no vÃ¡lida";
+                Escribir "Opción no válida";
         FinSegun
-
+		
         Si opcion <> 4 Entonces
-            Escribir "Â¿Desea realizar otra operaciÃ³n? (S/N): ";
+            Escribir "¿Desea realizar otra operación? (S/N): ";
             Leer seguir;
 			seguir<-Mayusculas(seguir);
-
+			
 			Si seguir = "N" Entonces
 				Escribir "Saliendo del programa...";
 			SiNo
 				Si seguir = "S" Entonces
-					Escribir "Redirigiendo al menÃº...";
+					Escribir "Redirigiendo al menú...";
 				SiNo
-					Escribir "OpciÃ³n no vÃ¡lida, redirigiendo al menÃº principal...";
+					Escribir "Opción no válida, redirigiendo al menú principal...";
 					seguir <- "S";
 				FinSi
 			FinSi
