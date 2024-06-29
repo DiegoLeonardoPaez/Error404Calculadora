@@ -30,9 +30,10 @@ Este proyecto es una calculadora científica implementada usando PSeInt, un int�
 - Software PSeInt instalado en tu computadora. Puedes descargarlo desde el [sitio oficial de PSeInt](https://pseint.sourceforge.io).
 
 ### Ejecutar el Programa
-1. Abre PSeInt.
-2. Carga el archivo del proyecto (`calculadora_cientifica.psc`).
-3. Ejecuta el programa presionando el botón "Ejecutar".
+1. Abrir PSeInt.
+2. Cargar el archivo del proyecto (`calculadora_cientifica.psc`).
+3. En Configurar, Opciones del Lenguaje, seleccionar el Perfil Flexible.
+4. Ejecutar el programa presionando el botón "Ejecutar".
 
 ## Interfaz de Usuario
 La calculadora opera en una interfaz basada en consola donde se pide al usuario que ingrese la operación deseada y los valores correspondientes. El programa guía al usuario a través del proceso de entrada y muestra los resultados directamente en la consola.
