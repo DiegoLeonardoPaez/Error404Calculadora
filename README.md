@@ -21,7 +21,7 @@ Este proyecto es una calculadora científica implementada usando PSeInt, un int�
 - Inicialización y Entrada de Matrices
 - Suma y Resta de Matrices
 - Multiplicación de Matrices
-- Determinante de una Matriz
+- Determinante de una Matriz (Método de Sarrus)
 - Transposición de Matrices
 
 ## Primeros Pasos
