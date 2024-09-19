@@ -383,7 +383,7 @@ SubProceso transpuesta_matriz
     Escribir "Matriz Original:";
     mostrar_matriz(matriz_original, filas, columnas);
 
-    // Calcular la transpuesta (Sarrus)
+    // Calcular la transpuesta (Método Sarrus)
     Para i <- 1 Hasta filas Con Paso 1 Hacer
         Para j <- 1 Hasta columnas Con Paso 1 Hacer
             matriz_transpuesta[j, i] <- matriz_original[i, j];
