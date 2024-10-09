@@ -176,7 +176,7 @@ SubProceso suma_matriz
     Escribir "Ejecutando Suma de Matrices...";
     Definir filas_A, columnas_A, filas_B, columnas_B, i, j como Entero;
     Dimension matriz_A[100, 100], matriz_B[100, 100], resultado_matriz[100, 100];
-	
+
     Repetir
         Escribir "Ingrese el número de filas de la matriz A:";
         Leer filas_A;
